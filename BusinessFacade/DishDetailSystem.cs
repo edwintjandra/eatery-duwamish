@@ -23,6 +23,18 @@ namespace BusinessFacade
             }
         }
 
+        public List<DishDetailData> GetDishDetailListByID(int DishID)
+        {
+            try
+            {
+                return new DishDetailDB().GetDishDetailListByID(DishID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public int InsertUpdateDishDetail(DishDetailData dishDetail)
         {
             try

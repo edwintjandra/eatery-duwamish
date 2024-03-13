@@ -67,7 +67,7 @@ namespace EateryDuwamish
         {
             try
             {
-                List<DishDetailData> ListDish = new DishDetailSystem().GetDishDetailList();
+                List<DishDetailData> ListDish = new DishDetailSystem().GetDishDetailListByID(DishID);
                 rptDishDetail.DataSource = ListDish;
                 rptDishDetail.DataBind();
             }

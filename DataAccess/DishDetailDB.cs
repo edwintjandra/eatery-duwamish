@@ -47,7 +47,44 @@ namespace DataAccess
                 throw ex;
             }
         }
-        
+
+        public List<DishDetailData> GetDishDetailListByID(int DishID) {
+            try
+            {
+                string SpName = "dbo.DishDetail_GetByDishID";
+                List<DishDetailData> ListDish = new List<DishDetailData>();
+
+                using (SqlConnection SqlConn = new SqlConnection())
+                {
+                    SqlConn.ConnectionString = SystemConfigurations.EateryConnectionString;
+                    SqlConn.Open();
+                    SqlCommand SqlCmd = new SqlCommand(SpName, SqlConn);
+                    SqlCmd.CommandType = CommandType.StoredProcedure;
+                    SqlCmd.Parameters.Add(new SqlParameter("@DishID", DishID));
+
+                    using (SqlDataReader Reader = SqlCmd.ExecuteReader())
+                    {
+                        if (Reader.HasRows)
+                        {
+                            while (Reader.Read())
+                            {
+                                DishDetailData dishDetail = new DishDetailData();
+                                dishDetail.DishDetailID = Convert.ToInt32(Reader["DishDetailID"]);
+                                dishDetail.RecipeName = Convert.ToString(Reader["RecipeName"]);
+                                ListDish.Add(dishDetail);
+                            }
+                        }
+                    }
+                    SqlConn.Close();
+                }
+                return ListDish;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         //SPO Dish_InsertUpdate
         public int InsertUpdateDishDetail(DishDetailData dish, SqlTransaction SqlTran)
         {
