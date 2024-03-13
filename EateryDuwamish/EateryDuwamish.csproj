@@ -116,6 +116,7 @@
     <Content Include="assets\main-stylesheet.css" />
     <Content Include="Dish.aspx" />
     <Content Include="DishDetail.aspx" />
+    <Content Include="DishRecipe.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Home.aspx" />
     <Content Include="lib\bootstrap-growl\css\animate.min.css" />
@@ -162,6 +163,13 @@
     </Compile>
     <Compile Include="DishDetail.aspx.designer.cs">
       <DependentUpon>DishDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DishRecipe.aspx.cs">
+      <DependentUpon>DishRecipe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DishRecipe.aspx.designer.cs">
+      <DependentUpon>DishRecipe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

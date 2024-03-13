@@ -107,13 +107,16 @@
                             </div>
                         </td>
                          <td>
-                            <asp:LinkButton ID="lbRecipeName" runat="server" CommandName="EDIT"></asp:LinkButton>
+                            <asp:Literal ID="litRecipeName" runat="server"></asp:Literal>
+                            <asp:LinkButton ID="litRecipeDetail" runat="server" Text="detail"></asp:LinkButton>
                         </td>
                     </tr>
                     </tbody>
                 </ItemTemplate>
             </asp:Repeater>
         </div>
+
+        <%-- END FORM OF DISH DETAIL --%>
     </form>
 </body>
 </html>
