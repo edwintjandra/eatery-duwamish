@@ -23,11 +23,12 @@ namespace DataAccess
 
                 SqlParameter DishRecipeId = new SqlParameter("@DishRecipeID", dishRecipe.DishRecipeID);
                 DishRecipeId.Direction = ParameterDirection.InputOutput;
-                SqlCmd.Parameters.Add(dishRecipe);
+                SqlCmd.Parameters.Add(DishRecipeId);
 
                 SqlCmd.Parameters.Add(new SqlParameter("@DishDetailID", dishRecipe.DishDetailID));
                 SqlCmd.Parameters.Add(new SqlParameter("@Ingredient", dishRecipe.Ingredient));
                 SqlCmd.Parameters.Add(new SqlParameter("@Quantity", dishRecipe.Quantity));
+                SqlCmd.Parameters.Add(new SqlParameter("@Unit", dishRecipe.Unit)); 
 
                 return SqlCmd.ExecuteNonQuery();
             }

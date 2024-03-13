@@ -17,6 +17,7 @@ namespace EateryDuwamish
             if (!string.IsNullOrEmpty(Request.QueryString["DishDetailID"]))
             {
                 int DishDetailID = Convert.ToInt32(Request.QueryString["DishDetailID"]);
+                hdfDishDetailID.Value = DishDetailID.ToString();
                 LoadDishRecipes(DishDetailID);
             }
         }
@@ -34,6 +35,36 @@ namespace EateryDuwamish
                 /*
                 notifDish.Show($"ERROR LOAD TABLE: {ex.Message}", NotificationType.Danger);
                 */
+            }
+        }
+
+        private DishRecipeData GetFormData()
+        {
+            DishRecipeData dishRecipe = new DishRecipeData();
+            dishRecipe.DishRecipeID = String.IsNullOrEmpty(hdfDishRecipeID.Value) ? 0 : Convert.ToInt32(hdfDishRecipeID.Value);
+            dishRecipe.DishDetailID= Convert.ToInt32(hdfDishDetailID.Value);
+            dishRecipe.Ingredient= txtIngredient.Text;
+            dishRecipe.Quantity = Convert.ToInt32(txtQuantity.Text);
+            dishRecipe.Unit= Convert.ToInt32(txtUnit.Text);
+            return dishRecipe;
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DishRecipeData dishRecipe = GetFormData();
+                int rowAffected = new DishRecipeSystem().InsertUpdateDishRecipe(dishRecipe);
+                if (rowAffected <= 0)
+                    throw new Exception("No Data Recorded");
+                Session["save-success"] = 1;
+                string queryString = Request.QueryString.ToString();
+                Response.Redirect($"DishRecipe.aspx?{queryString}"); 
+            }
+            catch (Exception ex)
+            {
+                /*
+                notifDish.Show($"ERROR SAVE DATA: {ex.Message}", NotificationType.Danger); */
             }
         }
 
