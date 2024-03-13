@@ -60,24 +60,6 @@ namespace EateryDuwamish
         protected global::System.Web.UI.WebControls.Literal litFormType;
 
         /// <summary>
-        /// hdfDishDetailId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdfDishDetailId;
-
-        /// <summary>
-        /// hdfDishId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdfDishId;
-
-        /// <summary>
         /// txtRecipeName control.
         /// </summary>
         /// <remarks>
@@ -105,13 +87,22 @@ namespace EateryDuwamish
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revRecipeName;
 
         /// <summary>
-        /// txtDishId control.
+        /// hdfDishID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDishId;
+        protected global::System.Web.UI.WebControls.HiddenField hdfDishID;
+
+        /// <summary>
+        /// hdfDishDetailID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfDishDetailID;
 
         /// <summary>
         /// btnSave control.

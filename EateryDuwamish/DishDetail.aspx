@@ -25,9 +25,6 @@
                     <hr style="margin:0"/>
                 </div>
                 <div class="form-slip-main">
-                    <!-- Hidden Field for DishDetailId, and DishId -->
-                    <asp:HiddenField ID="hdfDishDetailId" runat="server" Value="0"/>
-                    <asp:HiddenField ID="hdfDishId" runat="server" Value="0"/>
 
                     <div>
                        <%--Recipe Name Field--%>
@@ -51,6 +48,7 @@
                         </div>
                         <%--End of Recipe Name Field--%>    
                          <%--Dish ID Field--%>
+                        <%--  
                             <div class="col-lg-6 form-group">
                                 <div class="col-lg-4 control-label">
                                     Dish ID*
@@ -59,8 +57,13 @@
                                     <asp:TextBox ID="txtDishId" CssClass="form-control" runat="server" type="number"
                                     Min="0" Max="999999999"></asp:TextBox>
                                 </div>
-                            </div>
-                            <%--End of Recipe Name Field--%>    
+                            </div> --%>
+                            <asp:HiddenField ID="hdfDishID" runat="server" Value="0"/>
+
+                            <%--End of Dish ID Field--%>   
+                         <%--DishDetailID Field --%>
+                            <asp:HiddenField ID="hdfDishDetailID" runat="server" Value="0"/>
+                            <%--End of DishDetailID Field--%> 
                     </div>
                     <div class="col-lg-12">
                         <div class="col-lg-2">
@@ -79,8 +82,7 @@
         <%-- DishDetail lists --%>
          <div>
             <h2>DishDetail Lists</h2>
-
-            <asp:Repeater ID="rptDishDetail" runat="server" OnItemCommand="rptDishDetail_ItemCommand" OnItemDataBound="rptDishDetail_ItemDataBound">
+            <asp:Repeater ID="rptDishDetail" runat="server" OnItemDataBound="rptDishDetail_ItemDataBound">
                 <HeaderTemplate>
                 <table id="htblDish" class="table">
                     <thead>

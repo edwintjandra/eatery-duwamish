@@ -22,15 +22,25 @@ namespace EateryDuwamish
             if (!string.IsNullOrEmpty(Request.QueryString["DishID"]))
             {
                 int DishID = Convert.ToInt32(Request.QueryString["DishID"]);
+                /* give dish ID value */
                 LoadDishDetails(DishID);
+                hdfDishID.Value = DishID.ToString();
             }
+        }
+
+        private void FillForm(DishDetailData dishDetail)
+        {
+            //hdfDishId.Value = dishDetail.DishID.ToString();
+            /* 
+             fill other value
+             */
         }
 
         private DishDetailData GetFormData()
         {
             DishDetailData dishDetail = new DishDetailData();
-            dishDetail.DishDetailID = String.IsNullOrEmpty(hdfDishDetailId.Value) ? 0 : Convert.ToInt32(hdfDishDetailId.Value);
-            dishDetail.DishID = Convert.ToInt32(txtDishId.Text); ;
+            dishDetail.DishDetailID = String.IsNullOrEmpty(hdfDishDetailID.Value) ? 0 : Convert.ToInt32(hdfDishDetailID.Value);
+            dishDetail.DishID = Convert.ToInt32(hdfDishID.Value); 
             dishDetail.RecipeName = txtRecipeName.Text;
             return dishDetail;
         }
@@ -40,18 +50,21 @@ namespace EateryDuwamish
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO msDishDetail (DishID, RecipeName,AuditedActivity,AuditedTime) VALUES (@DishID, @RecipeName,@AuditedActivity,@AuditedTime)";
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@DishID", Convert.ToInt32(txtDishId.Text));
-                command.Parameters.AddWithValue("@RecipeName", txtRecipeName.Text);
-                command.Parameters.AddWithValue("@AuditedActivity", 'I');
-                command.Parameters.AddWithValue("@AuditedTime", "2024-03-08 13:22:46.767");
+                try
+                {
+                    DishDetailData dishDetail = GetFormData();
+                    int rowAffected = new DishDetailSystem().InsertUpdateDishDetail(dishDetail);
+                    if (rowAffected <= 0)
+                        throw new Exception("No Data Recorded");
+                    Session["save-success"] = 1;
+                    Response.Redirect("Dish.aspx");
+                }
+                catch (Exception ex)
+                {
+                    notifDish.Show($"ERROR SAVE DATA: {ex.Message}", NotificationType.Danger);
+                }
 
-                connection.Open();
-                command.ExecuteNonQuery();
             }
-            Response.Redirect(Request.Url.AbsoluteUri);
-
         }
 
         private void LoadDishDetails(int DishID)
@@ -82,14 +95,10 @@ namespace EateryDuwamish
             }
         }
 
-        protected void rptDishDetail_ItemCommand(object sender, RepeaterCommandEventArgs e)
+        protected void rptDish_ItemCommand(object sender, RepeaterCommandEventArgs e)
         {
-            if (e.CommandName == "EDIT")
-            {
-                
-            }
         }
 
-      
+
     }
 }
