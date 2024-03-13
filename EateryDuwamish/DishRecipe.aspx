@@ -8,9 +8,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-         <div>
+        <div>
         <h2>DishRecipe Lists</h2>
-        <asp:Repeater ID="rptDishDetail" runat="server" OnItemDataBound="rptDishRecipe_ItemDataBound">
+        <asp:Repeater ID="rptDishRecipe" runat="server" OnItemDataBound="rptDishRecipe_ItemDataBound">
             <HeaderTemplate>
             <table id="htblDish" class="table">
                 <thead>
@@ -51,7 +51,6 @@
                      <td>
                         <asp:Literal ID="litUnit" runat="server"></asp:Literal>
                      </td>
-
                 </tr>
                 </tbody>
             </ItemTemplate>

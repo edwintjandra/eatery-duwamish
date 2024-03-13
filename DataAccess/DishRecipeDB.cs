@@ -42,7 +42,7 @@ namespace DataAccess
         {
             try
             {
-                string SpName = "dbo.DishDetail_GetByDishRecipeID";
+                string SpName = "dbo.DishRecipe_GetByDishRecipeID";
                 List<DishRecipeData> ListDishRecipe = new List<DishRecipeData>();
 
                 using (SqlConnection SqlConn = new SqlConnection())

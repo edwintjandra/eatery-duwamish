@@ -14,16 +14,20 @@ namespace EateryDuwamish
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadDishDetails(Convert.ToInt32(Request.QueryString["DishDetailID"]));
+            if (!string.IsNullOrEmpty(Request.QueryString["DishDetailID"]))
+            {
+                int DishDetailID = Convert.ToInt32(Request.QueryString["DishDetailID"]);
+                LoadDishRecipes(DishDetailID);
+            }
         }
 
-        private void LoadDishDetails(int DishDetailID)
+        private void LoadDishRecipes(int DishDetailID)
         {
             try
             {
                 List<DishRecipeData> ListDish = new DishRecipeSystem().GetDishRecipeListByID(DishDetailID);
-                rptDishDetail.DataSource = ListDish;
-                rptDishDetail.DataBind();
+                rptDishRecipe.DataSource = ListDish;
+                rptDishRecipe.DataBind();
             }
             catch (Exception ex)
             {
