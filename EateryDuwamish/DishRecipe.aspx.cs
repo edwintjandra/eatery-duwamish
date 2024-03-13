@@ -80,7 +80,7 @@ namespace EateryDuwamish
 
                 litIngredient.Text = dishRecipe.Ingredient;
                 litQuantity.Text = dishRecipe.Quantity.ToString();
-                litUnit.Text = dishRecipe.Quantity.ToString();
+                litUnit.Text = dishRecipe.Unit.ToString();
 
 
                 CheckBox chkChoose = (CheckBox)e.Item.FindControl("chkChoose");
