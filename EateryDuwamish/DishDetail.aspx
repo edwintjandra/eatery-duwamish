@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <uc1:NotificationControl ID="notifDish" runat="server" />
 
-        <div class="page-title">Master Dish</div><hr style="margin:0"/>
+        <h2>Recipes</h2>
         
         <%--FORM DISH--%>
         <asp:Panel runat="server" ID="pnlFormDish" Visible="true">
@@ -19,7 +19,7 @@
             <div class="form-slip">
                 <div class="form-slip-header">
                     <div class="form-slip-title">
-                        FORM DISH DETAIL
+                        <asp:Label ID="lblDishName" runat="server" Text="Dish Name:"></asp:Label>
                         <asp:Literal runat="server" ID="litFormType"></asp:Literal>
                     </div>
                     <hr style="margin:0"/>

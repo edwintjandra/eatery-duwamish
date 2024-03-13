@@ -22,9 +22,11 @@ namespace EateryDuwamish
             if (!string.IsNullOrEmpty(Request.QueryString["DishID"]))
             {
                 int DishID = Convert.ToInt32(Request.QueryString["DishID"]);
+                DishData dish = new DishSystem().GetDishByID(DishID);
                 /* give dish ID value */
-                LoadDishDetails(DishID);
-                hdfDishID.Value = DishID.ToString();
+                LoadDishDetails(dish.DishID);
+                lblDishName.Text = "dish name: "+dish.DishName;
+                hdfDishID.Value = dish.DishID.ToString(); 
             }
         }
 
@@ -54,7 +56,8 @@ namespace EateryDuwamish
                 if (rowAffected <= 0)
                     throw new Exception("No Data Recorded");
                 Session["save-success"] = 1;
-                Response.Redirect("DishDetail.aspx");
+                string queryString = Request.QueryString.ToString();
+                Response.Redirect($"DishDetail.aspx?{queryString}");
             }
             catch (Exception ex)
             {

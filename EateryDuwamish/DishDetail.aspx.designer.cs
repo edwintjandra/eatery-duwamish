@@ -51,6 +51,15 @@ namespace EateryDuwamish
         protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
 
         /// <summary>
+        /// lblDishName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDishName;
+
+        /// <summary>
         /// litFormType control.
         /// </summary>
         /// <remarks>
