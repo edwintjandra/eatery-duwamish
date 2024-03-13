@@ -149,6 +149,7 @@
             </asp:Panel>
             <%--END OF FORM DISH--%>
 
+            <%-- REPEATER --%>
             <div class="row">
                 <div class="table-header">
                     <div class="table-header-title">
@@ -185,6 +186,11 @@
                                             class="sorting_asc text-center">
                                             Price
                                         </th>
+                                         <th aria-sort="ascending" style="" colspan="1" rowspan="1" tabindex="0"
+                                             class="sorting_asc text-center">
+                                             Dish Detail
+                                         </th>
+                                         
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -206,6 +212,9 @@
                                 <td>
                                     <asp:Literal ID="litPrice" runat="server"></asp:Literal>
                                 </td>
+                                 <td>
+                                 <asp:LinkButton ID="lbDishDetail" runat="server"></asp:LinkButton>
+                                 </td>
                             </tr>
                         </ItemTemplate>
                         <FooterTemplate>
@@ -215,6 +224,7 @@
                     </asp:Repeater>
                 </div>
             </div>
+        
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

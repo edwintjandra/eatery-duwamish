@@ -33,7 +33,7 @@ namespace DataAccess
                             {
                                 DishDetailData dishDetail = new DishDetailData();
                                 dishDetail.DishDetailID = Convert.ToInt32(Reader["DishDetailID"]);
-                                dishDetail.RecipeName= Convert.ToInt32(Reader["RecipeName"]);
+                                dishDetail.RecipeName= Convert.ToString(Reader["RecipeName"]); 
                                 ListDish.Add(dishDetail);
                             }
                         }

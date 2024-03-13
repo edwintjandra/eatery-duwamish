@@ -11,49 +11,29 @@ namespace BusinessFacade
 {
     public class DishDetailSystem
     {
-        public List<DishData> GetDishList()
+        public List<DishDetailData> GetDishDetailList()
         {
             try
             {
-                return new DishDB().GetDishList();
+                return new DishDetailDB().GetDishDetailList();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public DishData GetDishByID(int dishID)
+
+        public int InsertUpdateDishDetail(DishDetailData dishDetail)
         {
             try
             {
-                return new DishDB().GetDishByID(dishID);
+                return new DishDetailRule().InsertUpdateDishDetail(dishDetail);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public int InsertUpdateDish(DishData dish)
-        {
-            try
-            {
-                return new DishRule().InsertUpdateDish(dish);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        public int DeleteDishes(IEnumerable<int> dishIDs)
-        {
-            try
-            {
-                return new DishRule().DeleteDishes(dishIDs);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        
     }
 }

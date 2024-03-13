@@ -42,6 +42,15 @@ namespace EateryDuwamish
         protected global::System.Web.UI.WebControls.Panel pnlFormDish;
 
         /// <summary>
+        /// HiddenField1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+
+        /// <summary>
         /// litFormType control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace EateryDuwamish
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litFormType;
+
+        /// <summary>
+        /// hdfDishDetailId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfDishDetailId;
 
         /// <summary>
         /// hdfDishId control.
@@ -60,31 +78,40 @@ namespace EateryDuwamish
         protected global::System.Web.UI.WebControls.HiddenField hdfDishId;
 
         /// <summary>
-        /// txtDishName control.
+        /// txtRecipeName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDishName;
+        protected global::System.Web.UI.WebControls.TextBox txtRecipeName;
 
         /// <summary>
-        /// rfvDishName control.
+        /// rfvRecipeName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDishName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRecipeName;
 
         /// <summary>
-        /// revDishName control.
+        /// revRecipeName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revDishName;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revRecipeName;
+
+        /// <summary>
+        /// txtDishId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDishId;
 
         /// <summary>
         /// btnSave control.
@@ -94,5 +121,14 @@ namespace EateryDuwamish
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSave;
+
+        /// <summary>
+        /// rptDishDetail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptDishDetail;
     }
 }
