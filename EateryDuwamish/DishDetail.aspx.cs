@@ -47,25 +47,21 @@ namespace EateryDuwamish
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                try
-                {
-                    DishDetailData dishDetail = GetFormData();
-                    int rowAffected = new DishDetailSystem().InsertUpdateDishDetail(dishDetail);
-                    if (rowAffected <= 0)
-                        throw new Exception("No Data Recorded");
-                    Session["save-success"] = 1;
-                    Response.Redirect("Dish.aspx");
-                }
-                catch (Exception ex)
-                {
-                    notifDish.Show($"ERROR SAVE DATA: {ex.Message}", NotificationType.Danger);
-                }
-
+                DishDetailData dishDetail = GetFormData();
+                int rowAffected = new DishDetailSystem().InsertUpdateDishDetail(dishDetail);
+                if (rowAffected <= 0)
+                    throw new Exception("No Data Recorded");
+                Session["save-success"] = 1;
+                Response.Redirect("DishDetail.aspx");
             }
-        }
+            catch (Exception ex)
+            {
+                notifDish.Show($"ERROR SAVE DATA: {ex.Message}", NotificationType.Danger);
+            }
+         }
+        
 
         private void LoadDishDetails(int DishID)
         {
