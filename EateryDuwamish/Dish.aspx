@@ -213,7 +213,7 @@
                                     <asp:Literal ID="litPrice" runat="server"></asp:Literal>
                                 </td>
                                  <td>
-                                 <asp:LinkButton ID="lbDishDetail" runat="server"></asp:LinkButton>
+                                    <asp:HyperLink ID="hlDishDetail" runat="server" Text="details" ></asp:HyperLink>
                                  </td>
                             </tr>
                         </ItemTemplate>

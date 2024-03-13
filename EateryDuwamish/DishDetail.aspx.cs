@@ -87,7 +87,10 @@ namespace EateryDuwamish
                 DishDetailData dishDetail = (DishDetailData)e.Item.DataItem;
                 Literal litRecipeName = (Literal)e.Item.FindControl("litRecipeName");
                 litRecipeName.Text = dishDetail.RecipeName;
- 
+
+                HyperLink dishRecipeLink = (HyperLink)e.Item.FindControl("hlDishRecipe");
+                dishRecipeLink.NavigateUrl = "~/DishRecipe.aspx?DishDetailID=" + dishDetail.DishDetailID;
+
                 CheckBox chkChoose = (CheckBox)e.Item.FindControl("chkChoose");
                 chkChoose.Attributes.Add("data-value", dishDetail.DishDetailID.ToString());
             }

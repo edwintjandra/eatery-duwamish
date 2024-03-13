@@ -108,7 +108,9 @@
                         </td>
                          <td>
                             <asp:Literal ID="litRecipeName" runat="server"></asp:Literal>
-                            <asp:LinkButton ID="litRecipeDetail" runat="server" Text="detail"></asp:LinkButton>
+                        </td>
+                        <td>
+                            <asp:HyperLink ID="hlDishRecipe" runat="server" Text="details" ></asp:HyperLink>
                         </td>
                     </tr>
                     </tbody>

@@ -90,6 +90,9 @@ namespace EateryDuwamish
                 litDishType.Text = DishType.DishTypeName;
                 litPrice.Text = dish.DishPrice.ToString();
 
+                HyperLink dishDetailLink = (HyperLink)e.Item.FindControl("hlDishDetail");
+                dishDetailLink.NavigateUrl = "~/DishDetail.aspx?DishID=" + dish.DishID;
+
                 CheckBox chkChoose = (CheckBox)e.Item.FindControl("chkChoose");
                 chkChoose.Attributes.Add("data-value", dish.DishID.ToString());
             }
