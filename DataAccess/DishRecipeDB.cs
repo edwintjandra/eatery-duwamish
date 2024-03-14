@@ -54,7 +54,6 @@ namespace DataAccess
             }
         }
 
-        //belom diubah ke SPO yang versi Recipe
         public List<DishRecipeData> GetDishRecipeListByID(int DishDetailID)
         {
             try
@@ -89,6 +88,45 @@ namespace DataAccess
                     SqlConn.Close();
                 }
                 return ListDishRecipe;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        
+
+        //TODO: Belom diganti ke SP DISH RECIPE
+        public DishRecipeData GetDishRecipeByID(int dishRecipeID)
+        {
+            try
+            {
+                string SpName = "dbo.DishRecipe_GetByID";
+                DishRecipeData dishRecipe = null;
+                using (SqlConnection SqlConn = new SqlConnection())
+                {
+                    SqlConn.ConnectionString = SystemConfigurations.EateryConnectionString;
+                    SqlConn.Open();
+                    SqlCommand SqlCmd = new SqlCommand(SpName, SqlConn);
+                    SqlCmd.CommandType = CommandType.StoredProcedure;
+                    SqlCmd.Parameters.Add(new SqlParameter("@DishRecipeID", dishRecipeID));
+                    using (SqlDataReader Reader = SqlCmd.ExecuteReader())
+                    {
+                        if (Reader.HasRows)
+                        {
+                            Reader.Read();
+                            dishRecipe = new DishRecipeData();
+                            dishRecipe.DishRecipeID = Convert.ToInt32(Reader["DishRecipeID"]);
+                            dishRecipe.DishDetailID = Convert.ToInt32(Reader["DishDetailID"]);
+                            dishRecipe.Ingredient= Convert.ToString(Reader["Ingredient"]);
+                            dishRecipe.Quantity = Convert.ToInt32(Reader["Quantity"]);
+                            dishRecipe.Unit = Convert.ToInt32(Reader["Unit"]);
+
+                        }
+                    }
+                    SqlConn.Close();
+                }
+                return dishRecipe;
             }
             catch (Exception ex)
             {

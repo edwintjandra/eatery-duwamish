@@ -154,7 +154,7 @@
             <div class="row">
               <div class="table-main col-sm-12">
                  <asp:HiddenField ID="hdfDeletedDishes" runat="server" />
-                 <asp:Repeater ID="rptDishRecipe" runat="server" OnItemDataBound="rptDishRecipe_ItemDataBound">
+                 <asp:Repeater ID="rptDishRecipe" runat="server" OnItemDataBound="rptDishRecipe_ItemDataBound"  OnItemCommand="rptDishRecipe_ItemCommand">
                 <HeaderTemplate>
                 <table id="htblDish" class="table">
                     <thead>
@@ -186,9 +186,9 @@
                                 </asp:CheckBox>
                             </div>
                         </td>
-                            <td>
-                            <asp:Literal ID="litIngredient" runat="server"></asp:Literal>
-                        </td>
+                         <td>
+                             <asp:LinkButton ID="lbIngredient" runat="server" CommandName="EDIT"></asp:LinkButton>
+                         </td>
                             <td>
                             <asp:Literal ID="litQuantity" runat="server"></asp:Literal>
                         </td>

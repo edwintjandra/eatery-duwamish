@@ -45,5 +45,17 @@ namespace BusinessFacade
                 throw ex;
             }
         }
+
+        public DishRecipeData GetDishRecipeByID(int dishRecipeID)
+        {
+            try
+            {
+                return new DishRecipeDB().GetDishRecipeByID(dishRecipeID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

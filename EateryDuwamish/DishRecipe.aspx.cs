@@ -38,6 +38,15 @@ namespace EateryDuwamish
             }
         }
 
+        private void FillForm(DishRecipeData dishRecipe)
+        {
+            hdfDishRecipeID.Value = dishRecipe.DishRecipeID.ToString();
+            hdfDishDetailID.Value = dishRecipe.DishDetailID.ToString();
+            txtIngredient.Text = dishRecipe.Ingredient;
+            txtQuantity.Text = dishRecipe.Quantity.ToString();
+            txtUnit.Text = dishRecipe.Unit.ToString();
+        }
+
         private DishRecipeData GetFormData()
         {
             DishRecipeData dishRecipe = new DishRecipeData();
@@ -87,16 +96,39 @@ namespace EateryDuwamish
             }
         }
 
+        protected void rptDishRecipe_ItemCommand(object sender, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "EDIT")
+            {    
+                int dishRecipeID = Convert.ToInt32(e.CommandArgument.ToString());
+                //TODO: Bikin GetDishRecipeByID
+                DishRecipeData dishRecipe = new DishRecipeSystem().GetDishRecipeByID(dishRecipeID);
+                FillForm(new DishRecipeData
+                {
+                    DishRecipeID = dishRecipe.DishRecipeID,
+                    DishDetailID = dishRecipe.DishDetailID,
+                    Ingredient = dishRecipe.Ingredient,
+                    Quantity=dishRecipe.Quantity,
+                    Unit=dishRecipe.Unit
+                }); 
+
+                pnlFormDish.Visible = true;
+                txtIngredient.Focus();
+            }
+        }
+
         protected void rptDishRecipe_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 DishRecipeData dishRecipe= (DishRecipeData)e.Item.DataItem;
-                Literal litIngredient = (Literal)e.Item.FindControl("litIngredient");
-                Literal litQuantity = (Literal)e.Item.FindControl("litQuantity");
+                LinkButton lbIngridient= (LinkButton)e.Item.FindControl("lbIngredient");
+                 Literal litQuantity = (Literal)e.Item.FindControl("litQuantity");
                 Literal litUnit= (Literal)e.Item.FindControl("litUnit");
 
-                litIngredient.Text = dishRecipe.Ingredient;
+                lbIngridient.Text = dishRecipe.Ingredient;
+                lbIngridient.CommandArgument = dishRecipe.DishRecipeID.ToString();
+
                 litQuantity.Text = dishRecipe.Quantity.ToString();
                 litUnit.Text = dishRecipe.Unit.ToString();
 
