@@ -38,6 +38,22 @@ namespace DataAccess
             }
         }
 
+        public int DeleteDishRecipes(string dishRecipeIDs, SqlTransaction SqlTran)
+        {
+            try
+            {
+                string SpName = "dbo.DishRecipe_Delete";
+                SqlCommand SqlCmd = new SqlCommand(SpName, SqlTran.Connection, SqlTran);
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCmd.Parameters.Add(new SqlParameter("@DishRecipeIDs", dishRecipeIDs));
+                return SqlCmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         //belom diubah ke SPO yang versi Recipe
         public List<DishRecipeData> GetDishRecipeListByID(int DishDetailID)
         {

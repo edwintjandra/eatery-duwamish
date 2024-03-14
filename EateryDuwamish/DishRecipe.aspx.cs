@@ -68,7 +68,22 @@ namespace EateryDuwamish
             }
         }
 
-        protected void btnDelete_Click(object sender, EventArgs e) { 
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            string strDeletedIDs = hdfDeletedDishes.Value;
+            try
+            {
+                IEnumerable<int> deletedIDs = strDeletedIDs.Split(',').Select(Int32.Parse);
+                int rowAffected = new DishRecipeSystem().DeleteDishRecipes(deletedIDs);
+                if (rowAffected <= 0)
+                    throw new Exception("No Data Deleted");
+                Session["delete-success"] = 1;
+                Response.Redirect("Dish.aspx");
+            }
+            catch (Exception ex)
+            {
+                notifDish.Show($"ERROR DELETE DATA: {ex.Message}, deleted ids: {strDeletedIDs}", NotificationType.Danger);
+            }
         }
 
         protected void rptDishRecipe_ItemDataBound(object sender, RepeaterItemEventArgs e)
