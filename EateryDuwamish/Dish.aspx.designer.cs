@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EateryDuwamish {
-    
-    
-    public partial class Dish {
-        
+namespace EateryDuwamish
+{
+
+
+    public partial class Dish
+    {
+
         /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
+
         /// <summary>
         /// notifDish control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::EateryDuwamish.UserControl.NotificationControl notifDish;
-        
+
         /// <summary>
         /// pnlFormDish control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlFormDish;
-        
+
         /// <summary>
         /// litFormType control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litFormType;
-        
+
         /// <summary>
         /// hdfDishId control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdfDishId;
-        
+
         /// <summary>
         /// txtDishName control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDishName;
-        
+
         /// <summary>
         /// rfvDishName control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDishName;
-        
+
         /// <summary>
         /// revDishName control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revDishName;
-        
+
         /// <summary>
         /// ddlDishType control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlDishType;
-        
+
         /// <summary>
         /// rfvDishType control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDishType;
-        
+
         /// <summary>
         /// txtPrice control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrice;
-        
+
         /// <summary>
         /// rfvPrive control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrive;
-        
+
         /// <summary>
         /// btnSave control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSave;
-        
+
         /// <summary>
         /// btnAdd control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAdd;
-        
+
         /// <summary>
         /// btnDelete control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDelete;
-        
+
         /// <summary>
         /// hdfDeletedDishes control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace EateryDuwamish {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdfDeletedDishes;
-        
+
         /// <summary>
         /// rptDish control.
         /// </summary>

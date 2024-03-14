@@ -68,7 +68,7 @@ namespace EateryDuwamish
         protected void btnDelete_Click(object sender, EventArgs e) {
             try
             {
-                string strDeletedIDs = "1,2";
+                string strDeletedIDs = "3,5,6,7";
                 IEnumerable<int> deletedIDs = strDeletedIDs.Split(',').Select(Int32.Parse);
                 int rowAffected = new DishDetailSystem().DeleteDishDetails(deletedIDs);
                 if (rowAffected <= 0)

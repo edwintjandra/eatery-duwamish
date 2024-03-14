@@ -1,24 +1,79 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DishDetail.aspx.cs" Inherits="EateryDuwamish.DishDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/Site.Master"   Inherits="EateryDuwamish.DishDetail" %>
 <%@ Register Src="~/UserControl/NotificationControl.ascx" TagName="NotificationControl" TagPrefix="uc1" %>
  
- 
-<!DOCTYPE html>
+ <asp:Content ID="Content1" ContentPlaceHolderID="Head" runat="server">
+       <%--Datatable Configuration--%>
+   <script type="text/javascript">
+       function ConfigureDatatable() {
+           var table = null;
+           if ($.fn.dataTable.isDataTable('#htblDish')) {
+               table = $('#htblDish').DataTable();
+           }
+           else {
+               table = $('#htblDish').DataTable({
+                   stateSave: false,
+                   order: [[1, "asc"]],
+                   columnDefs: [{ orderable: false, targets: [0] }]
+               });
+           }
+           return table;
+       }
+   </script>
+   <%--Checkbox Event Configuration--%>
+   <script type="text/javascript">
+       function ConfigureCheckboxEvent() {
+           $('#htblDish').on('change', '.checkDelete input', function () {
+               var parent = $(this).parent();
+               var value = $(parent).attr('data-value');
+               var deletedList = [];
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+               if ($('#<%=hdfDeletedDishes.ClientID%>').val())
+                   deletedList = $('#<%=hdfDeletedDishes.ClientID%>').val().split(',');
+
+               if ($(this).is(':checked')) {
+                   deletedList.push(value);
+                   $('#<%=hdfDeletedDishes.ClientID%>').val(deletedList.join(','));
+               }
+               else {
+                   var index = deletedList.indexOf(value);
+                   if (index >= 0)
+                       deletedList.splice(index, 1);
+                   $('#<%=hdfDeletedDishes.ClientID%>').val(deletedList.join(','));
+               }
+           });
+       }
+   </script>
+   <%--Main Configuration--%>
+   <script type="text/javascript">
+       function ConfigureElements() {
+           ConfigureDatatable();
+           ConfigureCheckboxEvent();
+       }
+   </script>
+</asp:Content>
+
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+         <ContentTemplate>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ConfigureElements();
+            });
+            <%--On Partial Postback Callback Function--%>
+            var prm = Sys.WebForms.PageRequestManager.getInstance();
+            prm.add_endRequest(function () {
+                ConfigureElements();
+            });
+        </script>
+
         <uc1:NotificationControl ID="notifDish" runat="server" />
+        <div class="page-title">Recipes</div><hr style="margin:0"/>
 
-        <h2>Recipes</h2>
         
         <%--FORM DISH--%>
-
         <asp:Panel runat="server" ID="pnlFormDish" Visible="true">
-            <asp:HiddenField ID="HiddenField1" runat="server" Value="0"/>
-            <div class="form-slip">
+             <div class="form-slip">
                 <div class="form-slip-header">
                     <div class="form-slip-title">
                         <asp:Label ID="lblDishName" runat="server" Text="Dish Name:"></asp:Label>
@@ -27,7 +82,6 @@
                     <hr style="margin:0"/>
                 </div>
                 <div class="form-slip-main">
-
                     <div>
                        <%--Recipe Name Field--%>
                         <div class="col-lg-6 form-group">
@@ -91,18 +145,18 @@
                       DELETE BUTTON
                   </div>
                   <div class="table-header-button">
-                      <%-- HiddenField Deleted Dish details, configured in javascript at top --%>
-                      <asp:HiddenField ID="hdfDeletedDishDetails" runat="server" />
                       <asp:Button ID="btnDelete" runat="server" Text="DELETE" CssClass="btn btn-danger" Width="100px"
                           OnClick="btnDelete_Click" />
                   </div>
               </div>
           </div>
 
-        <%-- DishDetail lists --%>
+        <%-- DishDetail lists Repeater --%>
 
          <div>
             <h2>DishDetail Lists</h2>
+             <%-- Deleted Dish Details lists --%>
+            <asp:HiddenField ID="hdfDeletedDishes" runat="server" />
             <asp:Repeater ID="rptDishDetail" runat="server" OnItemDataBound="rptDishDetail_ItemDataBound">
                 <HeaderTemplate>
                 <table id="htblDish" class="table">
@@ -115,6 +169,10 @@
                                 class="sorting_asc text-center">
                                 Recipe Name
                             </th>
+                             <th aria-sort="ascending" style="" colspan="1" rowspan="1" tabindex="0"
+                                 class="sorting_asc text-center">
+                                 Recipe Details
+                             </th>
                         </tr>
                     </thead>
                 </HeaderTemplate>
@@ -140,6 +198,7 @@
         </div>
 
         <%-- END FORM OF DISH DETAIL --%>
-    </form>
-</body>
-</html>
+    
+                </ContentTemplate>
+        </asp:UpdatePanel>
+ </asp:Content>
