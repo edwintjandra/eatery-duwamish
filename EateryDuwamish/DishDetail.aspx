@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DishDetail.aspx.cs" Inherits="EateryDuwamish.DishDetail" %>
 <%@ Register Src="~/UserControl/NotificationControl.ascx" TagName="NotificationControl" TagPrefix="uc1" %>
-
+ 
+ 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,6 +15,7 @@
         <h2>Recipes</h2>
         
         <%--FORM DISH--%>
+
         <asp:Panel runat="server" ID="pnlFormDish" Visible="true">
             <asp:HiddenField ID="HiddenField1" runat="server" Value="0"/>
             <div class="form-slip">
@@ -79,7 +81,26 @@
         </asp:Panel>
         <%--END OF FORM DISH--%>
 
+        <%-- DELETE BUTTON --%>
+        <br />
+        <br />
+
+          <div class="row">
+              <div class="table-header">
+                  <div class="table-header-title">
+                      DELETE BUTTON
+                  </div>
+                  <div class="table-header-button">
+                      <%-- HiddenField Deleted Dish details, configured in javascript at top --%>
+                      <asp:HiddenField ID="hdfDeletedDishDetails" runat="server" />
+                      <asp:Button ID="btnDelete" runat="server" Text="DELETE" CssClass="btn btn-danger" Width="100px"
+                          OnClick="btnDelete_Click" />
+                  </div>
+              </div>
+          </div>
+
         <%-- DishDetail lists --%>
+
          <div>
             <h2>DishDetail Lists</h2>
             <asp:Repeater ID="rptDishDetail" runat="server" OnItemDataBound="rptDishDetail_ItemDataBound">

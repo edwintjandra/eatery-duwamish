@@ -64,7 +64,24 @@ namespace EateryDuwamish
                 notifDish.Show($"ERROR SAVE DATA: {ex.Message}", NotificationType.Danger);
             }
          }
-        
+
+        protected void btnDelete_Click(object sender, EventArgs e) {
+            try
+            {
+                string strDeletedIDs = "1,2";
+                IEnumerable<int> deletedIDs = strDeletedIDs.Split(',').Select(Int32.Parse);
+                int rowAffected = new DishDetailSystem().DeleteDishDetails(deletedIDs);
+                if (rowAffected <= 0)
+                    throw new Exception("No Data Deleted");
+                Session["delete-success"] = 1;
+                Response.Redirect("Dish.aspx");
+            }
+            catch (Exception ex)
+            {
+                notifDish.Show($"ERROR DELETE DATA: {ex.Message}", NotificationType.Danger);
+            } 
+
+        }
 
         private void LoadDishDetails(int DishID)
         {

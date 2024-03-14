@@ -108,6 +108,21 @@ namespace DataAccess
             }
         }
 
+        public int DeleteDishDetails(string dishDetailIDs, SqlTransaction SqlTran)
+        {
+            try
+            {
+                string SpName = "dbo.DishDetail_Delete";
+                SqlCommand SqlCmd = new SqlCommand(SpName, SqlTran.Connection, SqlTran);
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCmd.Parameters.Add(new SqlParameter("@DishDetailIDs", dishDetailIDs));
+                return SqlCmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         /*
         public DishDetailData GetDishDetailByID(int dishDetailID)
@@ -146,7 +161,9 @@ namespace DataAccess
         }
         */
 
-    } 
+
+
+    }
 }
 
     

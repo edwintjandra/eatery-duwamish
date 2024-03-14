@@ -47,7 +47,17 @@ namespace BusinessFacade
             }
         }
 
+        public int DeleteDishDetails(IEnumerable<int> dishDetailIDs)
+        {
+            try
+            {
+                return new DishDetailRule().DeleteDishDetails(dishDetailIDs);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-        
     }
 }

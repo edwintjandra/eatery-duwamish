@@ -33,6 +33,27 @@ namespace BusinessRule
                 throw ex;
             }
         }
-       
+
+        public int DeleteDishDetails(IEnumerable<int> dishDetailIDs)
+        {
+            SqlConnection SqlConn = null;
+            SqlTransaction SqlTran = null;
+            try
+            {
+                SqlConn = new SqlConnection(SystemConfigurations.EateryConnectionString);
+                SqlConn.Open();
+                SqlTran = SqlConn.BeginTransaction();
+                int rowsAffected = new DishDetailDB().DeleteDishDetails(String.Join(",", dishDetailIDs), SqlTran);
+                SqlTran.Commit();
+                SqlConn.Close();
+                return rowsAffected;
+            }
+            catch (Exception ex)
+            {
+                SqlTran.Rollback();
+                SqlConn.Close();
+                throw ex;
+            }
+        }
     }
 }
