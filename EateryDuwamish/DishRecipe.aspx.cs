@@ -68,6 +68,8 @@ namespace EateryDuwamish
             }
         }
 
+        protected void btnDelete_Click(object sender, EventArgs e) { 
+        }
 
         protected void rptDishRecipe_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
