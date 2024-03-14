@@ -70,19 +70,20 @@ namespace EateryDuwamish
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            string strDeletedIDs = hdfDeletedDishes.Value;
             try
             {
+                string strDeletedIDs = hdfDeletedDishes.Value;
                 IEnumerable<int> deletedIDs = strDeletedIDs.Split(',').Select(Int32.Parse);
                 int rowAffected = new DishRecipeSystem().DeleteDishRecipes(deletedIDs);
                 if (rowAffected <= 0)
                     throw new Exception("No Data Deleted");
                 Session["delete-success"] = 1;
-                Response.Redirect("Dish.aspx");
+                string queryString = Request.QueryString.ToString();
+                Response.Redirect($"DishRecipe.aspx?{queryString}");
             }
             catch (Exception ex)
             {
-                notifDish.Show($"ERROR DELETE DATA: {ex.Message}, deleted ids: {strDeletedIDs}", NotificationType.Danger);
+                notifDish.Show($"ERROR DELETE DATA: {ex.Message} ", NotificationType.Danger);
             }
         }
 
@@ -101,8 +102,7 @@ namespace EateryDuwamish
 
 
                 CheckBox chkChoose = (CheckBox)e.Item.FindControl("chkChoose");
-                /*
-                chkChoose.Attributes.Add("data-value", dishDetail.DishDetailID.ToString()); */
+                chkChoose.Attributes.Add("data-value", dishRecipe.DishRecipeID.ToString()); 
             }
         }
 
