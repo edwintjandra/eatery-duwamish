@@ -124,13 +124,12 @@ namespace DataAccess
             }
         }
 
-        /*
         public DishDetailData GetDishDetailByID(int dishDetailID)
         {
             try
             {
-                string SpName = "dbo.DishDetail_GetByDishID";
-                DishData dish = null;
+                string SpName = "dbo.DishDetail_GetByID";
+                DishDetailData dishDetail = null;
                 using (SqlConnection SqlConn = new SqlConnection())
                 {
                     SqlConn.ConnectionString = SystemConfigurations.EateryConnectionString;
@@ -143,23 +142,22 @@ namespace DataAccess
                         if (Reader.HasRows)
                         {
                             Reader.Read();
-                            dish = new DishData();
-                            dish.DishID = Convert.ToInt32(Reader["DishID"]);
-                            dish.DishTypeID = Convert.ToInt32(Reader["DishTypeID"]);
-                            dish.DishName = Convert.ToString(Reader["DishName"]);
-                            dish.DishPrice = Convert.ToInt32(Reader["DishPrice"]);
+                            dishDetail = new DishDetailData();
+                            dishDetail.DishDetailID = Convert.ToInt32(Reader["DishDetailID"]);
+                            dishDetail.DishID = Convert.ToInt32(Reader["DishID"]);
+                            dishDetail.RecipeName = Convert.ToString(Reader["RecipeName"]);
+
                         }
                     }
                     SqlConn.Close();
                 }
-                return dish;
+                return dishDetail;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        */
 
 
 

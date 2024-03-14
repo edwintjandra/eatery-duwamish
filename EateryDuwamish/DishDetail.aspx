@@ -136,7 +136,7 @@
         <div class="row">
          <div class="table-main col-sm-12">
             <asp:HiddenField ID="hdfDeletedDishes" runat="server" />
-            <asp:Repeater ID="rptDishDetail" runat="server" OnItemDataBound="rptDishDetail_ItemDataBound">
+            <asp:Repeater ID="rptDishDetail" runat="server" OnItemDataBound="rptDishDetail_ItemDataBound" OnItemCommand="rptDishDetail_ItemCommand">
                 <HeaderTemplate>
                 <table id="htblDish" class="table">
                     <thead>
@@ -165,7 +165,7 @@
                             </div>
                         </td>
                          <td>
-                            <asp:Literal ID="litRecipeName" runat="server"></asp:Literal>
+                            <asp:LinkButton ID="lbRecipeName" runat="server" CommandName="EDIT"></asp:LinkButton>
                         </td>
                         <td>
                             <asp:HyperLink ID="hlDishRecipe" runat="server" Text="details" ></asp:HyperLink>

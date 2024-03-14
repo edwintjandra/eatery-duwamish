@@ -32,10 +32,9 @@ namespace EateryDuwamish
 
         private void FillForm(DishDetailData dishDetail)
         {
-            //hdfDishId.Value = dishDetail.DishID.ToString();
-            /* 
-             fill other value
-             */
+            hdfDishDetailID.Value = dishDetail.DishDetailID.ToString();
+            hdfDishID.Value = dishDetail.DishID.ToString();
+            txtRecipeName.Text = dishDetail.RecipeName;
         }
 
         private DishDetailData GetFormData()
@@ -49,9 +48,9 @@ namespace EateryDuwamish
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            DishDetailData dishDetail = GetFormData();
             try
             {
-                DishDetailData dishDetail = GetFormData();
                 int rowAffected = new DishDetailSystem().InsertUpdateDishDetail(dishDetail);
                 if (rowAffected <= 0)
                     throw new Exception("No Data Recorded");
@@ -61,7 +60,7 @@ namespace EateryDuwamish
             }
             catch (Exception ex)
             {
-                notifDish.Show($"ERROR SAVE DATA: {ex.Message}", NotificationType.Danger);
+                notifDish.Show($"ERROR SAVE DATA: {ex.Message}, dish detail data: {dishDetail.DishDetailID}", NotificationType.Danger);
             }
          }
 
@@ -98,13 +97,33 @@ namespace EateryDuwamish
             }
         }
 
+        protected void rptDishDetail_ItemCommand(object sender, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "EDIT")
+            {
+                int dishDetailID = Convert.ToInt32(e.CommandArgument.ToString());
+                DishDetailData dish = new DishDetailSystem().GetDishDetailByID(dishDetailID);
+                FillForm(new DishDetailData
+                {
+                    DishDetailID=dish.DishDetailID,
+                    DishID = dish.DishID,
+                    RecipeName = dish.RecipeName,
+                });
+
+                pnlFormDish.Visible = true;
+                txtRecipeName.Focus();
+            }
+        }
+
         protected void rptDishDetail_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 DishDetailData dishDetail = (DishDetailData)e.Item.DataItem;
-                Literal litRecipeName = (Literal)e.Item.FindControl("litRecipeName");
-                litRecipeName.Text = dishDetail.RecipeName;
+                LinkButton lbRecipeName = (LinkButton)e.Item.FindControl("lbRecipeName");
+                lbRecipeName.Text = dishDetail.RecipeName;
+                lbRecipeName.CommandArgument = dishDetail.DishDetailID.ToString();
+
 
                 HyperLink dishRecipeLink = (HyperLink)e.Item.FindControl("hlDishRecipe");
                 dishRecipeLink.NavigateUrl = "~/DishRecipe.aspx?DishDetailID=" + dishDetail.DishDetailID;
@@ -114,9 +133,7 @@ namespace EateryDuwamish
             }
         }
 
-        protected void rptDish_ItemCommand(object sender, RepeaterCommandEventArgs e)
-        {
-        }
+       
 
 
     }
