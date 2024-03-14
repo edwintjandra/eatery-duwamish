@@ -68,13 +68,14 @@ namespace EateryDuwamish
         protected void btnDelete_Click(object sender, EventArgs e) {
             try
             {
-                string strDeletedIDs = "3,5,6,7";
+                string strDeletedIDs = hdfDeletedDishes.Value;
                 IEnumerable<int> deletedIDs = strDeletedIDs.Split(',').Select(Int32.Parse);
                 int rowAffected = new DishDetailSystem().DeleteDishDetails(deletedIDs);
                 if (rowAffected <= 0)
                     throw new Exception("No Data Deleted");
                 Session["delete-success"] = 1;
-                Response.Redirect("Dish.aspx");
+                string queryString = Request.QueryString.ToString();
+                Response.Redirect($"DishDetail.aspx?{queryString}");
             }
             catch (Exception ex)
             {

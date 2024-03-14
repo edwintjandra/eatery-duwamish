@@ -68,8 +68,7 @@
         </script>
 
         <uc1:NotificationControl ID="notifDish" runat="server" />
-        <div class="page-title">Recipes</div><hr style="margin:0"/>
-
+        <div class="page-title">Dish Details</div><hr style="margin:0"/>
         
         <%--FORM DISH--%>
         <asp:Panel runat="server" ID="pnlFormDish" Visible="true">
@@ -103,23 +102,12 @@
                             </div>
                         </div>
                         <%--End of Recipe Name Field--%>    
-                         <%--Dish ID Field--%>
-                        <%--  
-                            <div class="col-lg-6 form-group">
-                                <div class="col-lg-4 control-label">
-                                    Dish ID*
-                                </div>
-                                <div class="col-lg-6">
-                                    <asp:TextBox ID="txtDishId" CssClass="form-control" runat="server" type="number"
-                                    Min="0" Max="999999999"></asp:TextBox>
-                                </div>
-                            </div> --%>
-                            <asp:HiddenField ID="hdfDishID" runat="server" Value="0"/>
+                        <asp:HiddenField ID="hdfDishID" runat="server" Value="0"/>
 
-                            <%--End of Dish ID Field--%>   
+                        <%--End of Dish ID Field--%>   
                          <%--DishDetailID Field --%>
-                            <asp:HiddenField ID="hdfDishDetailID" runat="server" Value="0"/>
-                            <%--End of DishDetailID Field--%> 
+                        <asp:HiddenField ID="hdfDishDetailID" runat="server" Value="0"/>
+                        <%--End of DishDetailID Field--%> 
                     </div>
                     <div class="col-lg-12">
                         <div class="col-lg-2">
@@ -135,27 +123,18 @@
         </asp:Panel>
         <%--END OF FORM DISH--%>
 
-        <%-- DELETE BUTTON --%>
-        <br />
-        <br />
+        <%-- REPEATER --%>
+        <div class="row">
+            <div class="table-header">
+                <div class="table-header-button">
+                    <asp:Button ID="btnDelete" runat="server" Text="DELETE" CssClass="btn btn-danger" Width="100px"
+                        OnClick="btnDelete_Click" />
+                </div>
+            </div>
+        </div>
 
-          <div class="row">
-              <div class="table-header">
-                  <div class="table-header-title">
-                      DELETE BUTTON
-                  </div>
-                  <div class="table-header-button">
-                      <asp:Button ID="btnDelete" runat="server" Text="DELETE" CssClass="btn btn-danger" Width="100px"
-                          OnClick="btnDelete_Click" />
-                  </div>
-              </div>
-          </div>
-
-        <%-- DishDetail lists Repeater --%>
-
-         <div>
-            <h2>DishDetail Lists</h2>
-             <%-- Deleted Dish Details lists --%>
+        <div class="row">
+         <div class="table-main col-sm-12">
             <asp:HiddenField ID="hdfDeletedDishes" runat="server" />
             <asp:Repeater ID="rptDishDetail" runat="server" OnItemDataBound="rptDishDetail_ItemDataBound">
                 <HeaderTemplate>
@@ -196,9 +175,8 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
-
-        <%-- END FORM OF DISH DETAIL --%>
-    
-                </ContentTemplate>
-        </asp:UpdatePanel>
+         </div>
+     
+        </ContentTemplate>
+    </asp:UpdatePanel>
  </asp:Content>
