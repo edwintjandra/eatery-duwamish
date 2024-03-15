@@ -71,7 +71,7 @@ namespace EateryDuwamish
             }
             catch (Exception ex)
             {
-                notifDish.Show($"ERROR LOAD TABLE: {ex.Message}", NotificationType.Danger);
+                notifDish.Show($"An error occurred while loading the table: {ex.Message}", NotificationType.Danger);
             }
         }
         protected void rptDish_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -129,13 +129,13 @@ namespace EateryDuwamish
                 DishData dish = GetFormData();
                 int rowAffected = new DishSystem().InsertUpdateDish(dish);
                 if (rowAffected <= 0)
-                    throw new Exception("No Data Recorded");
+                    throw new Exception("No data was recorded. Please ensure that all required fields are filled.");
                 Session["save-success"] = 1;
                 Response.Redirect("Dish.aspx");
             }
             catch(Exception ex)
             {
-                notifDish.Show($"ERROR SAVE DATA: {ex.Message}", NotificationType.Danger);
+                notifDish.Show($"An error occurred while saving data: {ex.Message}", NotificationType.Danger);
             }
         }
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -153,13 +153,13 @@ namespace EateryDuwamish
                 IEnumerable<int> deletedIDs = strDeletedIDs.Split(',').Select(Int32.Parse);
                 int rowAffected = new DishSystem().DeleteDishes(deletedIDs);
                 if (rowAffected <= 0)
-                    throw new Exception("No Data Deleted");
+                    throw new Exception("No data was deleted. Please ensure that the item exists.");
                 Session["delete-success"] = 1;
                 Response.Redirect("Dish.aspx");
             }
             catch (Exception ex)
             {
-                notifDish.Show($"ERROR DELETE DATA: {ex.Message}", NotificationType.Danger);
+                notifDish.Show($"An error occurred while deleting data: {ex.Message}", NotificationType.Danger);
             }
         }
         #endregion

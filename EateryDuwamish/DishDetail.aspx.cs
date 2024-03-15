@@ -60,9 +60,9 @@ namespace EateryDuwamish
             }
             catch (Exception ex)
             {
-                notifDish.Show($"ERROR SAVE DATA: {ex.Message}, dish detail data: {dishDetail.DishDetailID}", NotificationType.Danger);
+                notifDish.Show($"An error occurred while saving data: {ex.Message}.", NotificationType.Danger);
             }
-         }
+        }
 
         protected void btnDelete_Click(object sender, EventArgs e) {
             try
@@ -78,8 +78,8 @@ namespace EateryDuwamish
             }
             catch (Exception ex)
             {
-                notifDish.Show($"ERROR DELETE DATA: {ex.Message}", NotificationType.Danger);
-            } 
+                notifDish.Show($"An error occurred while deleting data: {ex.Message}", NotificationType.Danger);
+            }
 
         }
 
@@ -93,7 +93,7 @@ namespace EateryDuwamish
             }
             catch (Exception ex)
             {
-                notifDish.Show($"ERROR LOAD TABLE: {ex.Message}", NotificationType.Danger);
+                notifDish.Show($"An error occurred while loading the table: {ex.Message}", NotificationType.Danger);
             }
         }
 
