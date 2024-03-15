@@ -89,6 +89,11 @@
                                   </div>
                                   <div class="col-lg-6">
                                       <asp:TextBox ID="txtIngredient" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <%-- Validator for Ingredient --%>
+                                          <asp:RequiredFieldValidator ID="rfvIngredient" runat="server" ErrorMessage="Please fill this field"
+                                             ControlToValidate="txtIngredient" ForeColor="Red" 
+                                             ValidationGroup="InsertUpdateRecipe" Display="Dynamic">
+                                         </asp:RequiredFieldValidator>
                                   </div>
                               </div>
                               <%--END Ingredient Field--%>
@@ -100,6 +105,11 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <asp:TextBox ID="txtQuantity" CssClass="form-control" runat="server"></asp:TextBox>
+                                         <%-- Validator for Quantity --%>
+                                        <asp:RequiredFieldValidator ID="rfvQuantity" runat="server" ErrorMessage="Please fill this field"
+                                            ControlToValidate="txtQuantity" ForeColor="Red" 
+                                            ValidationGroup="InsertUpdateRecipe" Display="Dynamic">
+                                        </asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                                 <%--END Quantity Field--%>
@@ -111,6 +121,11 @@
                                      </div>
                                      <div class="col-lg-6">
                                          <asp:TextBox ID="txtUnit" CssClass="form-control" runat="server"></asp:TextBox>
+                                          <%-- Validator for unit --%>
+                                        <asp:RequiredFieldValidator ID="rfvUnit" runat="server" ErrorMessage="Please fill this field"
+                                            ControlToValidate="txtUnit" ForeColor="Red" 
+                                            ValidationGroup="InsertUpdateRecipe" Display="Dynamic">
+                                        </asp:RequiredFieldValidator>
                                      </div>
                                  </div>
                                  <%--END Unit Field--%>
@@ -129,7 +144,7 @@
                           <div class="col-lg-12">
                               <div class="col-lg-2">
                                   <asp:Button runat="server" ID="btnSave" CssClass="btn btn-primary" Width="100px"
-                                      Text="SAVE" OnClick="btnSave_Click" ValidationGroup="InsertUpdateDish">
+                                      Text="SAVE" OnClick="btnSave_Click" ValidationGroup="InsertUpdateRecipe">
                                   </asp:Button>
                               </div>
                           </div>

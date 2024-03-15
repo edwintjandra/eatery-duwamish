@@ -89,15 +89,11 @@
                             </div>
                             <div class="col-lg-6">
                                 <asp:TextBox ID="txtRecipeName" CssClass="form-control" runat="server"></asp:TextBox>
-                                <%--Validator--%>
-                                <asp:RequiredFieldValidator ID="rfvRecipeName" runat="server" ErrorMessage="Please fill this field"
-                                    ControlToValidate="txtRecipeName" ForeColor="Red" 
-                                    ValidationGroup="InsertUpdateRecipe" Display="Dynamic">
-                                </asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="revRecipeName" runat="server" ErrorMessage="This field has a maximum of 100 characters"
-                                    ControlToValidate="txtRecipeName" ValidationExpression="^[\s\S]{0,100}$" ForeColor="Red"
-                                    ValidationGroup="InsertUpdateRecipe" Display="Dynamic">
-                                </asp:RegularExpressionValidator>
+                                  <%-- Validator for unit --%>
+                                  <asp:RequiredFieldValidator ID="rfvRecipeName" runat="server" ErrorMessage="Please fill this field"
+                                      ControlToValidate="txtRecipeName" ForeColor="Red" 
+                                      ValidationGroup="InsertUpdateDishDetail" Display="Dynamic">
+                                  </asp:RequiredFieldValidator>
                                 <%--End of Validator--%>
                             </div>
                         </div>
@@ -114,7 +110,7 @@
                         </div>
                         <div class="col-lg-2">
                             <asp:Button runat="server" ID="btnSave" CssClass="btn btn-primary" Width="100px"
-                                Text="SAVE" OnClick="btnSave_Click" ValidationGroup="InsertUpdateDish">
+                                Text="SAVE" OnClick="btnSave_Click" ValidationGroup="InsertUpdateDishDetail">
                             </asp:Button>
                         </div>
                     </div>
