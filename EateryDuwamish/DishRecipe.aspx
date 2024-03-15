@@ -99,35 +99,43 @@
                               <%--END Ingredient Field--%>
 
                             <%--Quantity Field--%>
-                                <div class="col-lg-6 form-group">
+                              <div class="col-lg-6 form-group">
                                     <div class="col-lg-4 control-label">
                                         Quantity*
                                     </div>
                                     <div class="col-lg-6">
                                         <asp:TextBox ID="txtQuantity" CssClass="form-control" runat="server"></asp:TextBox>
-                                         <%-- Validator for Quantity --%>
+                                        <%-- Validator for Quantity --%>
                                         <asp:RequiredFieldValidator ID="rfvQuantity" runat="server" ErrorMessage="Please fill this field"
                                             ControlToValidate="txtQuantity" ForeColor="Red" 
                                             ValidationGroup="InsertUpdateRecipe" Display="Dynamic">
                                         </asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="revQuantity" runat="server" ErrorMessage="Please enter a valid quantity (numeric)"
+                                            ControlToValidate="txtQuantity" ValidationExpression="^\d+$" ForeColor="Red"
+                                            ValidationGroup="InsertUpdateRecipe" Display="Dynamic">
+                                        </asp:RegularExpressionValidator>
                                     </div>
                                 </div>
                                 <%--END Quantity Field--%>
 
                                <%--Unit Field--%>
-                                 <div class="col-lg-6 form-group">
-                                     <div class="col-lg-4 control-label">
-                                         Unit*
-                                     </div>
-                                     <div class="col-lg-6">
-                                         <asp:TextBox ID="txtUnit" CssClass="form-control" runat="server"></asp:TextBox>
-                                          <%-- Validator for unit --%>
+                               <div class="col-lg-6 form-group">
+                                    <div class="col-lg-4 control-label">
+                                        Unit*
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <asp:TextBox ID="txtUnit" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <%-- Validator for Unit --%>
                                         <asp:RequiredFieldValidator ID="rfvUnit" runat="server" ErrorMessage="Please fill this field"
                                             ControlToValidate="txtUnit" ForeColor="Red" 
                                             ValidationGroup="InsertUpdateRecipe" Display="Dynamic">
                                         </asp:RequiredFieldValidator>
-                                     </div>
-                                 </div>
+                                        <asp:RegularExpressionValidator ID="revUnit" runat="server" ErrorMessage="Please enter a valid unit (numeric)"
+                                            ControlToValidate="txtUnit" ValidationExpression="^\d+$" ForeColor="Red"
+                                            ValidationGroup="InsertUpdateRecipe" Display="Dynamic">
+                                        </asp:RegularExpressionValidator>
+                                    </div>
+                                </div>
                                  <%--END Unit Field--%>
 
 

@@ -105,6 +105,15 @@ namespace EateryDuwamish
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvQuantity;
 
         /// <summary>
+        /// revQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revQuantity;
+
+        /// <summary>
         /// txtUnit control.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace EateryDuwamish
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUnit;
+
+        /// <summary>
+        /// revUnit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revUnit;
 
         /// <summary>
         /// hdfDishRecipeID control.
