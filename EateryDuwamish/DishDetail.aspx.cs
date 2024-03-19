@@ -35,6 +35,7 @@ namespace EateryDuwamish
             hdfDishDetailID.Value = dishDetail.DishDetailID.ToString();
             hdfDishID.Value = dishDetail.DishID.ToString();
             txtRecipeName.Text = dishDetail.RecipeName;
+            txtRecipeDescription.Text = dishDetail.RecipeDescription;
         }
 
         private DishDetailData GetFormData()
@@ -43,6 +44,7 @@ namespace EateryDuwamish
             dishDetail.DishDetailID = String.IsNullOrEmpty(hdfDishDetailID.Value) ? 0 : Convert.ToInt32(hdfDishDetailID.Value);
             dishDetail.DishID = Convert.ToInt32(hdfDishID.Value); 
             dishDetail.RecipeName = txtRecipeName.Text;
+            dishDetail.RecipeDescription = txtRecipeDescription.Text;
             return dishDetail;
         }
 
@@ -78,7 +80,7 @@ namespace EateryDuwamish
             }
             catch (Exception ex)
             {
-                notifDish.Show($"An error occurred while deleting data: {ex.Message}", NotificationType.Danger);
+                notifDish.Show("Harap memilih item sebelu menghapus", NotificationType.Danger);
             }
 
         }

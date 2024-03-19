@@ -159,7 +159,7 @@ namespace EateryDuwamish
             }
             catch (Exception ex)
             {
-                notifDish.Show($"An error occurred while deleting data: {ex.Message}", NotificationType.Danger);
+                notifDish.Show("Harap memilih item sebelu menghapus", NotificationType.Danger);
             }
         }
         #endregion

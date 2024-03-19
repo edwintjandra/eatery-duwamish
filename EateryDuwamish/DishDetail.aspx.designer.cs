@@ -15,13 +15,13 @@ namespace EateryDuwamish
     {
 
         /// <summary>
-        /// form1 control.
+        /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
         /// notifDish control.
@@ -40,15 +40,6 @@ namespace EateryDuwamish
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlFormDish;
-
-        /// <summary>
-        /// HiddenField1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
 
         /// <summary>
         /// lblDishName control.
@@ -87,13 +78,22 @@ namespace EateryDuwamish
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRecipeName;
 
         /// <summary>
-        /// revRecipeName control.
+        /// txtRecipeDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revRecipeName;
+        protected global::System.Web.UI.WebControls.TextBox txtRecipeDescription;
+
+        /// <summary>
+        /// rfvRecipeDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRecipeDescription;
 
         /// <summary>
         /// hdfDishID control.

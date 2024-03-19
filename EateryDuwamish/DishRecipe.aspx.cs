@@ -89,7 +89,7 @@ namespace EateryDuwamish
             }
             catch (Exception ex)
             {
-                notifDish.Show($"An error occurred while deleting data: {ex.Message}", NotificationType.Danger);
+                notifDish.Show("Harap memilih item sebelu menghapus", NotificationType.Danger);
             }
         }
 
@@ -120,7 +120,7 @@ namespace EateryDuwamish
             {
                 DishRecipeData dishRecipe= (DishRecipeData)e.Item.DataItem;
                 LinkButton lbIngridient= (LinkButton)e.Item.FindControl("lbIngredient");
-                 Literal litQuantity = (Literal)e.Item.FindControl("litQuantity");
+                Literal litQuantity = (Literal)e.Item.FindControl("litQuantity");
                 Literal litUnit= (Literal)e.Item.FindControl("litUnit");
 
                 lbIngridient.Text = dishRecipe.Ingredient;

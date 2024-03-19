@@ -99,6 +99,7 @@ namespace DataAccess
                 SqlCmd.Parameters.Add(DishDetailId);
 
                 SqlCmd.Parameters.Add(new SqlParameter("@RecipeName", dish.RecipeName));
+                SqlCmd.Parameters.Add(new SqlParameter("@RecipeDescription", dish.RecipeDescription));
                 SqlCmd.Parameters.Add(new SqlParameter("@DishID", dish.DishID));
                 return SqlCmd.ExecuteNonQuery();
             }

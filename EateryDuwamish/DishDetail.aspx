@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/Site.Master"   Inherits="EateryDuwamish.DishDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/Site.Master"   Inherits="EateryDuwamish.DishDetail" CodeBehind="DishDetail.aspx.cs" %>
 <%@ Register Src="~/UserControl/NotificationControl.ascx" TagName="NotificationControl" TagPrefix="uc1" %>
  
  <asp:Content ID="Content1" ContentPlaceHolderID="Head" runat="server">
@@ -88,8 +88,8 @@
                                 Recipe Name*
                             </div>
                             <div class="col-lg-6">
-                                <asp:TextBox ID="txtRecipeName" CssClass="form-control" runat="server"></asp:TextBox>
-                                  <%-- Validator for unit --%>
+                                  <asp:TextBox ID="txtRecipeName" CssClass="form-control" runat="server"></asp:TextBox>
+                                  <%-- Validator for recipe name--%>
                                   <asp:RequiredFieldValidator ID="rfvRecipeName" runat="server" ErrorMessage="Please fill this field"
                                       ControlToValidate="txtRecipeName" ForeColor="Red" 
                                       ValidationGroup="InsertUpdateDishDetail" Display="Dynamic">
@@ -98,6 +98,22 @@
                             </div>
                         </div>
                         <%--End of Recipe Name Field--%>    
+                          <%--Recipe Description Field--%>
+                            <div class="col-lg-6 form-group">
+                                <div class="col-lg-4 control-label">
+                                    Recipe Description*
+                                </div>
+                                <div class="col-lg-6">
+                                        <asp:TextBox ID="txtRecipeDescription" CssClass="form-control" runat="server"></asp:TextBox>
+                                         <%-- Validator for text descrpition --%>
+                                        <asp:RequiredFieldValidator ID="rfvRecipeDescription" runat="server" ErrorMessage="Please fill this field"
+                                            ControlToValidate="txtRecipeDescription" ForeColor="Red" 
+                                            ValidationGroup="InsertUpdateDishDetail" Display="Dynamic">
+                                        </asp:RequiredFieldValidator>
+                                    <%--End of Validator--%>
+                                </div>
+                            </div>
+                            <%--End of Recipe Description Field--%>   
                         <asp:HiddenField ID="hdfDishID" runat="server" Value="0"/>
 
                         <%--End of Dish ID Field--%>   
