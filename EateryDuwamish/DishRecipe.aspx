@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/Site.Master" CodeBehind="DishRecipe.aspx.cs" Inherits="EateryDuwamish.DishRecipe" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/Site.Master" CodeBehind="DishRecipe.aspx.cs" Inherits="EateryDuwamish.DishRecipe"%>
 <%@ Register Src="~/UserControl/NotificationControl.ascx" TagName="NotificationControl" TagPrefix="uc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Head" runat="server">
@@ -215,19 +215,17 @@
                 </div>
             </div>
 
-            <%--
-            <%-- RECIPE DESCRIPTION 
-            <div class="row">
-                <div class="col-lg-12 form-group">
-                    <div class="col-lg-2 control-label">
-                        Recipe Description
+                <%-- Container for Description --%>
+                <div class="row">
+                    <div class="table-header">
+                        <div class="table-header-title">
+                            Recipe Description
+                        </div>
+                    <div class="">
+                        <asp:TextBox ID="txtDescription" CssClass="form-control" runat="server" TextMode="MultiLine" ></asp:TextBox>
                     </div>
-                    <div class="col-lg-10">
-                        <asp:Literal ID="litRecipeDescription" runat="server" Text="asdamsdkmaksmdaks"></asp:Literal>
                     </div>
                 </div>
-            </div> --%>
-
 
 
        </ContentTemplate>

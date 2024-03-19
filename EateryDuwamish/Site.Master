@@ -58,9 +58,6 @@
         <div id="main-container">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder> 
-
-            <asp:ContentPlaceHolder ID="AdditionalContent" runat="server">
-            </asp:ContentPlaceHolder>
         </div>
 
     </form>

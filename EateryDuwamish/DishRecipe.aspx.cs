@@ -16,8 +16,10 @@ namespace EateryDuwamish
         {
             if (!string.IsNullOrEmpty(Request.QueryString["DishDetailID"]))
             {
-                int DishDetailID = Convert.ToInt32(Request.QueryString["DishDetailID"]);
+                DishDetailData dishDetail = new DishDetailSystem().GetDishDetailByID(Convert.ToInt32(Request.QueryString["DishDetailID"]));
+                int DishDetailID = dishDetail.DishDetailID;
                 hdfDishDetailID.Value = DishDetailID.ToString();
+                FillRecipeDescription(dishDetail);
                 LoadDishRecipes(DishDetailID);
             }
         }
@@ -34,6 +36,10 @@ namespace EateryDuwamish
             {
                 notifDish.Show($"An error occurred while loading the table: {ex.Message}", NotificationType.Danger);
             }
+        }
+
+        private void FillRecipeDescription(DishDetailData dishDetail) {
+            txtDescription.Text = dishDetail.RecipeDescription;
         }
 
         private void FillForm(DishRecipeData dishRecipe)
@@ -124,17 +130,15 @@ namespace EateryDuwamish
                 LinkButton lbIngridient= (LinkButton)e.Item.FindControl("lbIngredient");
                 Literal litQuantity = (Literal)e.Item.FindControl("litQuantity");
                 Literal litUnit= (Literal)e.Item.FindControl("litUnit");
- 
+
+
                 lbIngridient.Text = dishRecipe.Ingredient;
                 lbIngridient.CommandArgument = dishRecipe.DishRecipeID.ToString();
-
                 litQuantity.Text = dishRecipe.Quantity.ToString();
                 litUnit.Text = dishRecipe.Unit.ToString();
- 
-
                 CheckBox chkChoose = (CheckBox)e.Item.FindControl("chkChoose");
-                chkChoose.Attributes.Add("data-value", dishRecipe.DishRecipeID.ToString()); 
-            }
+                chkChoose.Attributes.Add("data-value", dishRecipe.DishRecipeID.ToString());
+              }
         }
 
     }
