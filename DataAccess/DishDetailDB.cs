@@ -34,6 +34,7 @@ namespace DataAccess
                                 DishDetailData dishDetail = new DishDetailData();
                                 dishDetail.DishDetailID = Convert.ToInt32(Reader["DishDetailID"]);
                                 dishDetail.RecipeName = Convert.ToString(Reader["RecipeName"]);
+                                dishDetail.RecipeDescription = Convert.ToString(Reader["RecipeDescription"]);
                                 ListDish.Add(dishDetail);
                             }
                         }
@@ -71,6 +72,7 @@ namespace DataAccess
                                 DishDetailData dishDetail = new DishDetailData();
                                 dishDetail.DishDetailID = Convert.ToInt32(Reader["DishDetailID"]);
                                 dishDetail.RecipeName = Convert.ToString(Reader["RecipeName"]);
+                                dishDetail.RecipeDescription = Convert.ToString(Reader["RecipeDescription"]);
                                 ListDish.Add(dishDetail);
                             }
                         }
@@ -147,7 +149,7 @@ namespace DataAccess
                             dishDetail.DishDetailID = Convert.ToInt32(Reader["DishDetailID"]);
                             dishDetail.DishID = Convert.ToInt32(Reader["DishID"]);
                             dishDetail.RecipeName = Convert.ToString(Reader["RecipeName"]);
-
+                            dishDetail.RecipeDescription= Convert.ToString(Reader["RecipeDescription"]);
                         }
                     }
                     SqlConn.Close();

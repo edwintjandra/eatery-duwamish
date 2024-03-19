@@ -119,6 +119,8 @@ namespace EateryDuwamish
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 DishRecipeData dishRecipe= (DishRecipeData)e.Item.DataItem;
+                int dishDetailID= Convert.ToInt32(hdfDishDetailID.Value);
+                DishDetailData dishDetail = new DishDetailSystem().GetDishDetailByID(dishDetailID);
                 LinkButton lbIngridient= (LinkButton)e.Item.FindControl("lbIngredient");
                 Literal litQuantity = (Literal)e.Item.FindControl("litQuantity");
                 Literal litUnit= (Literal)e.Item.FindControl("litUnit");
@@ -128,6 +130,8 @@ namespace EateryDuwamish
 
                 litQuantity.Text = dishRecipe.Quantity.ToString();
                 litUnit.Text = dishRecipe.Unit.ToString();
+
+                litRecipeDescription.Text = dishDetail.RecipeDescription;
 
 
                 CheckBox chkChoose = (CheckBox)e.Item.FindControl("chkChoose");

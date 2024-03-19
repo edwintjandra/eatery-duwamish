@@ -224,9 +224,35 @@
             </asp:Repeater>
               </div>
              </div>
+           
 
        </ContentTemplate>
     </asp:UpdatePanel>
+
+</asp:Content>
+
+
+<asp:Content ID="Content3" ContentPlaceHolderID="AdditionalContent" runat="server">
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+        <ContentTemplate>
+
+ <%-- RECIPE DESCRIPTION --%>
+<asp:Panel runat="server" ID="Panel1" Visible="true">
+    <!-- Other form elements -->
+    <div class="col-lg-12 form-group">
+        <div class="col-lg-2 control-label">
+            Recipe Description
+        </div>
+        <div class="col-lg-10">
+            <asp:Literal ID="litRecipeDescription" runat="server" Text="asdamsdkmaksmdaks"></asp:Literal>
+        </div>
+    </div>
+    <!-- Other form elements -->
+</asp:Panel>
+
+    </ContentTemplate>
+</asp:UpdatePanel>
+
 </asp:Content>
 
   

@@ -110,6 +110,7 @@ namespace EateryDuwamish
                     DishDetailID=dish.DishDetailID,
                     DishID = dish.DishID,
                     RecipeName = dish.RecipeName,
+                    RecipeDescription = dish.RecipeDescription
                 });
 
                 pnlFormDish.Visible = true;

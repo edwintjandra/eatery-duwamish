@@ -104,7 +104,7 @@
                                     Recipe Description*
                                 </div>
                                 <div class="col-lg-6">
-                                        <asp:TextBox ID="txtRecipeDescription" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtRecipeDescription" CssClass="form-control" runat="server" TextMode="MultiLine" Rows="6" ></asp:TextBox>
                                          <%-- Validator for text descrpition --%>
                                         <asp:RequiredFieldValidator ID="rfvRecipeDescription" runat="server" ErrorMessage="Please fill this field"
                                             ControlToValidate="txtRecipeDescription" ForeColor="Red" 
