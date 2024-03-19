@@ -80,7 +80,7 @@ namespace DataAccess
                                 dishRecipe.DishDetailID = Convert.ToInt32(Reader["DishDetailID"]);
                                 dishRecipe.Ingredient= Convert.ToString(Reader["Ingredient"]);
                                 dishRecipe.Quantity = Convert.ToInt32(Reader["Quantity"]);
-                                dishRecipe.Unit= Convert.ToInt32(Reader["Unit"]);
+                                dishRecipe.Unit= Convert.ToString(Reader["Unit"]);
                                 ListDishRecipe.Add(dishRecipe);
                             }
                         }
@@ -120,7 +120,7 @@ namespace DataAccess
                             dishRecipe.DishDetailID = Convert.ToInt32(Reader["DishDetailID"]);
                             dishRecipe.Ingredient= Convert.ToString(Reader["Ingredient"]);
                             dishRecipe.Quantity = Convert.ToInt32(Reader["Quantity"]);
-                            dishRecipe.Unit = Convert.ToInt32(Reader["Unit"]);
+                            dishRecipe.Unit = Convert.ToString(Reader["Unit"]);
 
                         }
                     }

@@ -36,8 +36,8 @@ namespace Common.Data
             set { _quantity = value; }
         }
 
-        private int _unit;
-        public int Unit
+        private string _unit;
+        public string Unit
         {
             get { return _unit; }
             set { _unit = value; }
