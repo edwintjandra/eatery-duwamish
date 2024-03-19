@@ -124,15 +124,13 @@ namespace EateryDuwamish
                 LinkButton lbIngridient= (LinkButton)e.Item.FindControl("lbIngredient");
                 Literal litQuantity = (Literal)e.Item.FindControl("litQuantity");
                 Literal litUnit= (Literal)e.Item.FindControl("litUnit");
-
+ 
                 lbIngridient.Text = dishRecipe.Ingredient;
                 lbIngridient.CommandArgument = dishRecipe.DishRecipeID.ToString();
 
                 litQuantity.Text = dishRecipe.Quantity.ToString();
                 litUnit.Text = dishRecipe.Unit.ToString();
-
-                litRecipeDescription.Text = dishDetail.RecipeDescription;
-
+ 
 
                 CheckBox chkChoose = (CheckBox)e.Item.FindControl("chkChoose");
                 chkChoose.Attributes.Add("data-value", dishRecipe.DishRecipeID.ToString()); 

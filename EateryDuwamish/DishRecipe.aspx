@@ -163,96 +163,84 @@
               <%--END OF FORM DISH--%>
 
               <%-- REPEATER --%>
-             <div class="row">
-                 <div class="table-header">
-                     <div class="table-header-title">
-                         DISHES
-                     </div>
-                     <div class="table-header-button">
-                         <asp:Button ID="btnDelete" runat="server" Text="DELETE" CssClass="btn btn-danger" Width="100px"
-                             OnClick="btnDelete_Click" />
-                     </div>
-                 </div>
-             </div>
+              <div class="row">
+                <div class="table-header">
+                    <div class="table-header-title">
+                        DISHES
+                    </div>
+                    <div class="table-header-button">
+                        <asp:Button ID="btnDelete" runat="server" Text="DELETE" CssClass="btn btn-danger" Width="100px"
+                            OnClick="btnDelete_Click" />
+                    </div>
+                </div>
+            </div>
+              <div class="row">
+                <div class="table-main col-sm-12">
+                    <asp:HiddenField ID="hdfDeletedDishes" runat="server" />
+                    <asp:Repeater ID="rptDishRecipe" runat="server" OnItemDataBound="rptDishRecipe_ItemDataBound" OnItemCommand="rptDishRecipe_ItemCommand">
+                        <HeaderTemplate>
+                            <table id="htblDish" class="table">
+                                <thead>
+                                    <tr role="row">
+                                        <th aria-sort="ascending" style="" colspan="1" rowspan="1" tabindex="0" class="sorting_asc center">
+                                        </th>
+                                        <th aria-sort="ascending" style="" colspan="1" rowspan="1" tabindex="0" class="sorting_asc text-center">
+                                            Ingredient
+                                        </th>
+                                        <th aria-sort="ascending" style="" colspan="1" rowspan="1" tabindex="0" class="sorting_asc text-center">
+                                            Quantity
+                                        </th>
+                                        <th aria-sort="ascending" style="" colspan="1" rowspan="1" tabindex="0" class="sorting_asc text-center">
+                                            Unit
+                                        </th>
+                                    </tr>
+                                </thead>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <tbody>
+                                <tr class="odd" role="row" runat="server" onclick="">
+                                    <td>
+                                        <div style="text-align: center;">
+                                            <asp:CheckBox ID="chkChoose" CssClass="checkDelete" runat="server">
+                                            </asp:CheckBox>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <asp:LinkButton ID="lbIngredient" runat="server" CommandName="EDIT"></asp:LinkButton>
+                                    </td>
+                                    <td>
+                                        <asp:Literal ID="litQuantity" runat="server"></asp:Literal>
+                                    </td>
+                                    <td>
+                                        <asp:Literal ID="litUnit" runat="server"></asp:Literal>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </div>
+
+            <%--
+            <%-- RECIPE DESCRIPTION 
             <div class="row">
-              <div class="table-main col-sm-12">
-                 <asp:HiddenField ID="hdfDeletedDishes" runat="server" />
-                 <asp:Repeater ID="rptDishRecipe" runat="server" OnItemDataBound="rptDishRecipe_ItemDataBound"  OnItemCommand="rptDishRecipe_ItemCommand">
-                <HeaderTemplate>
-                <table id="htblDish" class="table">
-                    <thead>
-                        <tr role="row">
-                            <th aria-sort="ascending" style="" colspan="1" rowspan="1"
-                                tabindex="0" class="sorting_asc center">
-                            </th>
-                            <th aria-sort="ascending" style="" colspan="1" rowspan="1" tabindex="0"
-                                class="sorting_asc text-center">
-                                Ingredient
-                            </th>
-                            <th aria-sort="ascending" style="" colspan="1" rowspan="1" tabindex="0"
-                                class="sorting_asc text-center">
-                                Quantity
-                            </th>
-                            <th aria-sort="ascending" style="" colspan="1" rowspan="1" tabindex="0"
-                                class="sorting_asc text-center">
-                                Unit
-                            </th>
-                        </tr>
-                    </thead>
-                </HeaderTemplate>
-                <ItemTemplate>
-                    <tbody>
-                    <tr class="odd" role="row" runat="server" onclick="">
-                        <td>
-                            <div style="text-align: center;">
-                                <asp:CheckBox ID="chkChoose" CssClass="checkDelete" runat="server">
-                                </asp:CheckBox>
-                            </div>
-                        </td>
-                         <td>
-                             <asp:LinkButton ID="lbIngredient" runat="server" CommandName="EDIT"></asp:LinkButton>
-                         </td>
-                            <td>
-                            <asp:Literal ID="litQuantity" runat="server"></asp:Literal>
-                        </td>
-                            <td>
-                            <asp:Literal ID="litUnit" runat="server"></asp:Literal>
-                            </td>
-                    </tr>
-                    </tbody>
-                </ItemTemplate>
-            </asp:Repeater>
-              </div>
-             </div>
-           
+                <div class="col-lg-12 form-group">
+                    <div class="col-lg-2 control-label">
+                        Recipe Description
+                    </div>
+                    <div class="col-lg-10">
+                        <asp:Literal ID="litRecipeDescription" runat="server" Text="asdamsdkmaksmdaks"></asp:Literal>
+                    </div>
+                </div>
+            </div> --%>
+
+
 
        </ContentTemplate>
     </asp:UpdatePanel>
 
 </asp:Content>
 
-
-<asp:Content ID="Content3" ContentPlaceHolderID="AdditionalContent" runat="server">
-    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-        <ContentTemplate>
-
- <%-- RECIPE DESCRIPTION --%>
-<asp:Panel runat="server" ID="Panel1" Visible="true">
-    <!-- Other form elements -->
-    <div class="col-lg-12 form-group">
-        <div class="col-lg-2 control-label">
-            Recipe Description
-        </div>
-        <div class="col-lg-10">
-            <asp:Literal ID="litRecipeDescription" runat="server" Text="asdamsdkmaksmdaks"></asp:Literal>
-        </div>
-    </div>
-    <!-- Other form elements -->
-</asp:Panel>
-
-    </ContentTemplate>
-</asp:UpdatePanel>
-
-</asp:Content>
+ 
 
   
