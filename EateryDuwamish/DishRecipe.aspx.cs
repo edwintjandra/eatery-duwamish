@@ -14,7 +14,7 @@ namespace EateryDuwamish
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Request.QueryString["DishDetailID"]))
+            if (!IsPostBack && !string.IsNullOrEmpty(Request.QueryString["DishDetailID"]))
             {
                 DishDetailData dishDetail = new DishDetailSystem().GetDishDetailByID(Convert.ToInt32(Request.QueryString["DishDetailID"]));
                 int DishDetailID = dishDetail.DishDetailID;
