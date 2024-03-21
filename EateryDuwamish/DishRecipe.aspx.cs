@@ -16,6 +16,7 @@ namespace EateryDuwamish
         {
             if (!IsPostBack && !string.IsNullOrEmpty(Request.QueryString["DishDetailID"]))
             {
+                ShowNotificationIfExists();
                 DishDetailData dishDetail = new DishDetailSystem().GetDishDetailByID(Convert.ToInt32(Request.QueryString["DishDetailID"]));
                 int DishDetailID = dishDetail.DishDetailID;
                 hdfDishDetailID.Value = DishDetailID.ToString();
@@ -169,5 +170,18 @@ namespace EateryDuwamish
               }
         }
 
+        private void ShowNotificationIfExists()
+        {
+            if (Session["save-success"] != null)
+            {
+                notifDish.Show("Data sukses disimpan", NotificationType.Success);
+                Session.Remove("save-success");
+            }
+            if (Session["delete-success"] != null)
+            {
+                notifDish.Show("Data sukses dihapus", NotificationType.Success);
+                Session.Remove("delete-success");
+            }
+        }
     }
 }

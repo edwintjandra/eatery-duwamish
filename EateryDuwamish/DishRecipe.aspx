@@ -162,7 +162,6 @@
               <div class="row">
                 <div class="table-header">
                     <div class="table-header-title">
-                        DISHES
                     </div>
                     <div class="table-header-button">
                         <asp:Button ID="btnDelete" runat="server" Text="DELETE" CssClass="btn btn-danger" Width="100px"
@@ -212,34 +211,35 @@
                                     </td>
                                 </tr>
                             </tbody>
+
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
             </div>
 
-                <%-- Container for Description --%>
-                <div class="row">
-                    <div class="table-header">
-                        <div class="table-header-title">
-                            Recipe Description
-                        </div>
-                    <div class="">
-                        <asp:TextBox ID="txtDescription" CssClass="form-control" runat="server" TextMode="MultiLine" ReadOnly="true" EnableViewState="true" ></asp:TextBox>
-                         <%-- Validator for text description --%>
+            <%-- Container for Description --%>
+            <div class="row">
+                <div class="table-header">
+                    <div class="table-header-title">
+                        Recipe Description
+                    </div>
+                <div class="">
+                    <asp:TextBox ID="txtDescription" CssClass="form-control" runat="server" TextMode="MultiLine" ReadOnly="true" EnableViewState="true" ></asp:TextBox>
+                        <%-- Validator for text description --%>
                         
-                    </div>
-
-                     <div class="table-header-button">
-                          <%-- toggle button --%>
-                          <asp:Button ID="btnToggleDescription" runat="server" Text="EDIT" CssClass="btn btn-primary" Width="100px"
-                            OnClick="btnToggleDescription_Click" /> 
-                         <%-- save button --%>
-                         <asp:Button ID="btnSaveDescription" runat="server" Text="SAVE DESCRIPTION" CssClass="btn btn-primary" Width="100px"
-                             OnClick="btnSaveDescription_Click" /> 
-                     </div>
-                    </div>
-                    
                 </div>
+
+                    <div class="table-header-button">
+                        <%-- toggle button --%>
+                        <asp:Button ID="btnToggleDescription" runat="server" Text="EDIT" CssClass="btn btn-primary" Width="100px"
+                        OnClick="btnToggleDescription_Click" /> 
+                        <%-- save button --%>
+                        <asp:Button ID="btnSaveDescription" runat="server" Text="SAVE DESCRIPTION" CssClass="btn btn-primary" Width="100px"
+                            OnClick="btnSaveDescription_Click" /> 
+                    </div>
+                </div>
+                    
+            </div>
 
 
        </ContentTemplate>
