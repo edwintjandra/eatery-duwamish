@@ -106,6 +106,10 @@
                          <%--DishDetailID hidden Field --%>
                         <asp:HiddenField ID="hdfDishDetailID" runat="server" Value="0"/>
                         <%--End of DishDetailID Field--%> 
+
+                         <%--RecipeDescription hidden Field --%>
+                        <asp:HiddenField ID="hdfRecipeDescription" runat="server" Value="0"/>
+                        <%--End of RecipeDescription Field--%> 
                     </div>
                     <div class="col-lg-12">
                         <div class="col-lg-2">

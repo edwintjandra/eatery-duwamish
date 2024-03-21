@@ -36,6 +36,7 @@ namespace EateryDuwamish
             hdfDishDetailID.Value = dishDetail.DishDetailID.ToString();
             hdfDishID.Value = dishDetail.DishID.ToString();
             txtRecipeName.Text = dishDetail.RecipeName;
+            hdfRecipeDescription.Value= dishDetail.RecipeDescription;
         }
 
         private DishDetailData GetFormData()
@@ -44,7 +45,7 @@ namespace EateryDuwamish
             dishDetail.DishDetailID = String.IsNullOrEmpty(hdfDishDetailID.Value) ? 0 : Convert.ToInt32(hdfDishDetailID.Value);
             dishDetail.DishID = Convert.ToInt32(hdfDishID.Value); 
             dishDetail.RecipeName = txtRecipeName.Text;
-            dishDetail.RecipeDescription = "";
+            dishDetail.RecipeDescription = hdfRecipeDescription.Value;
             return dishDetail;
         }
 
