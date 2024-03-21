@@ -98,26 +98,12 @@
                             </div>
                         </div>
                         <%--End of Recipe Name Field--%>    
-                          <%--Recipe Description Field--%>
-                            <div class="col-lg-6 form-group">
-                                <div class="col-lg-4 control-label">
-                                    Recipe Description*
-                                </div>
-                                <div class="col-lg-6">
-                                        <asp:TextBox ID="txtRecipeDescription" CssClass="form-control" runat="server" TextMode="MultiLine" Rows="6" ></asp:TextBox>
-                                         <%-- Validator for text descrpition --%>
-                                        <asp:RequiredFieldValidator ID="rfvRecipeDescription" runat="server" ErrorMessage="Please fill this field"
-                                            ControlToValidate="txtRecipeDescription" ForeColor="Red" 
-                                            ValidationGroup="InsertUpdateDishDetail" Display="Dynamic">
-                                        </asp:RequiredFieldValidator>
-                                    <%--End of Validator--%>
-                                </div>
-                            </div>
-                            <%--End of Recipe Description Field--%>   
+
+                        <%-- DishID hidden field --%>
                         <asp:HiddenField ID="hdfDishID" runat="server" Value="0"/>
 
                         <%--End of Dish ID Field--%>   
-                         <%--DishDetailID Field --%>
+                         <%--DishDetailID hidden Field --%>
                         <asp:HiddenField ID="hdfDishDetailID" runat="server" Value="0"/>
                         <%--End of DishDetailID Field--%> 
                     </div>
