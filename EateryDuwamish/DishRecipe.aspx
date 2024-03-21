@@ -45,6 +45,8 @@
     </script>
     <%--Main Configuration--%>
     <script type="text/javascript">
+        
+
         function ConfigureElements() {
             ConfigureDatatable();
             ConfigureCheckboxEvent();
@@ -222,9 +224,21 @@
                             Recipe Description
                         </div>
                     <div class="">
-                        <asp:TextBox ID="txtDescription" CssClass="form-control" runat="server" TextMode="MultiLine" ></asp:TextBox>
+                        <asp:TextBox ID="txtDescription" CssClass="form-control" runat="server" TextMode="MultiLine" ReadOnly="true" EnableViewState="true" ></asp:TextBox>
+                         <%-- Validator for text description --%>
+                        
                     </div>
+
+                     <div class="table-header-button">
+                          <%-- toggle button --%>
+                          <asp:Button ID="btnToggleDescription" runat="server" Text="EDIT" CssClass="btn btn-primary" Width="100px"
+                            OnClick="btnToggleDescription_Click" /> 
+                         <%-- save button --%>
+                         <asp:Button ID="btnSaveDescription" runat="server" Text="SAVE DESCRIPTION" CssClass="btn btn-primary" Width="100px"
+                             OnClick="btnSaveDescription_Click" /> 
+                     </div>
                     </div>
+                    
                 </div>
 
 

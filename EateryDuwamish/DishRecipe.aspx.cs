@@ -42,6 +42,10 @@ namespace EateryDuwamish
             txtDescription.Text = dishDetail.RecipeDescription;
         }
 
+        private string getRecipeDescription() { 
+            return txtDescription.Text;
+        }
+
         private void FillForm(DishRecipeData dishRecipe)
         {
             hdfDishRecipeID.Value = dishRecipe.DishRecipeID.ToString();
@@ -96,6 +100,30 @@ namespace EateryDuwamish
             catch (Exception ex)
             {
                 notifDish.Show("Harap memilih item sebelu menghapus", NotificationType.Danger);
+            }
+        }
+
+        protected void btnToggleDescription_Click(object sender, EventArgs e)
+        {
+            txtDescription.ReadOnly = !txtDescription.ReadOnly;
+        } 
+
+        protected void btnSaveDescription_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DishDetailData dishDetail = new DishDetailSystem().GetDishDetailByID(Convert.ToInt32(Request.QueryString["DishDetailID"]));
+                 dishDetail.RecipeDescription = getRecipeDescription();
+                int rowAffected = new DishDetailSystem().InsertUpdateDishDetail(dishDetail);
+                if (rowAffected <= 0)
+                    throw new Exception("No Data Recorded");
+                Session["save-success"] = 1;
+                string queryString = Request.QueryString.ToString();
+                Response.Redirect($"DishRecipe.aspx?{queryString}");
+            }
+            catch (Exception ex)
+            {
+                notifDish.Show($"failed to save recipe description,{ex.Message}", NotificationType.Danger);
             }
         }
 
