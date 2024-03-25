@@ -51,6 +51,22 @@ namespace BusinessFacade
         {
             try
             {
+                string strDeletedDishRecipesId = "";
+
+                foreach (int dishDetailId in dishDetailIDs)
+                {
+                    List<DishRecipeData> dishRecipes = new DishRecipeSystem().GetDishRecipeListByID(dishDetailId);
+
+                    foreach (DishRecipeData dishRecipe in dishRecipes)
+                    {
+                        strDeletedDishRecipesId = strDeletedDishRecipesId + "," + dishRecipe.DishRecipeID;
+                    }
+                }
+                 
+
+                IEnumerable<int> deletedDishRecipesId = strDeletedDishRecipesId.Split(',').Where(s => !string.IsNullOrWhiteSpace(s)).Select(int.Parse);
+                new DishRecipeSystem().DeleteDishRecipes(deletedDishRecipesId);
+
                 return new DishDetailRule().DeleteDishDetails(dishDetailIDs);
             }
             catch (Exception ex)

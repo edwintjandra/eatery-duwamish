@@ -108,11 +108,20 @@ namespace DataAccess
         {
             try
             {
-                string SpName = "dbo.Dish_Delete";
-                SqlCommand SqlCmd = new SqlCommand(SpName, SqlTran.Connection, SqlTran);
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-                SqlCmd.Parameters.Add(new SqlParameter("@DishIDs", dishIDs));
-                return SqlCmd.ExecuteNonQuery();
+                string dishDeleteSpName = "dbo.Dish_Delete";
+                int totalRowsAffected = 0;
+
+                //logic buat delete dish nya
+                using (SqlCommand dishCmd = new SqlCommand(dishDeleteSpName, SqlTran.Connection, SqlTran))
+                {
+                    dishCmd.CommandType = CommandType.StoredProcedure;
+                    dishCmd.Parameters.Add(new SqlParameter("@DishIDs", dishIDs));
+                    dishCmd.ExecuteNonQuery();
+                    totalRowsAffected += dishCmd.ExecuteNonQuery();
+                }
+
+                return totalRowsAffected;
+
             }
             catch (Exception ex)
             {
